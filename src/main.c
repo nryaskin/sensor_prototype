@@ -13,7 +13,7 @@
 #include "usbd_cdc_vcp.h"
 
 #include "cur_reader.h"
-#include "asd_util.h"
+#include "ads_util.h"
 
 // Private variables
 volatile uint32_t time_var1, time_var2;
@@ -26,16 +26,37 @@ void calculation_test();
 
 int main(void) {
 	init();
-        
+              
 	/*
 	 * Disable STDOUT buffering. Otherwise nothing will be printed
 	 * before a newline character or when the buffer is flushed.
 	 */
 	setbuf(stdout, NULL);
-        
-        Init_ADS();
-//	calculation_test();
+        printf("__Start Init ADS__");
         Init_Comm();
+        printf("__END INIT__");
+        printf("__Start Init Regs__");
+        Init_Regs();
+        printf("__END Init Regs__");
+        printf("Check registers");
+        
+        TM_SPI_Send(SPI1, 0x23);
+        
+//	calculation_test();
+//        Init_Comm();
+ /*
+   PD12, PD13, PD14, PD15
+*/ 
+/* A - 8 9 10 11 12
+   a - 5 3
+   b - 0 1 5 10 11
+   
+*/      
+       for(;;) {
+        
+       }
+
+
 
 	for(;;) {
 		GPIO_SetBits(GPIOD, GPIO_Pin_12);

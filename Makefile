@@ -6,7 +6,7 @@ SRCS = main.c stm32f4xx_it.c system_stm32f4xx.c syscalls.c
 SRCS += usbd_usr.c usbd_cdc_vcp.c usbd_desc.c usb_bsp.c
 
 # ASD
-SRCS += cur_reader.c asd_util.c
+SRCS += cur_reader.c ads_util.c
 
 #TM_SPI
 SRCS += tm_stm32f4_gpio.c tm_stm32f4_spi.c

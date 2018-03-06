@@ -6,4 +6,6 @@
 #include "stm32f4xx_spi.h"    
 #include "tm_stm32f4_spi.h"
     void Init_Comm(void);
+    void Init_Regs(void);
+    void Deinit_ADS(void);
 #endif
